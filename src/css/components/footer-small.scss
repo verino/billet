@@ -1,0 +1,64 @@
+.footer{
+  position: absolute;
+  bottom: 0;
+  min-height: 120px;
+  margin-bottom: -120px;
+  width: 100%;
+  background-color: #f1f1f1;
+  @include opacity(.9);
+  @media (max-width: $screen-sm-min){
+    margin-bottom: -240px;
+    }
+  .container{
+    padding:35px 0;
+  }
+  .tag, .social, .production{
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    @media (max-width: $screen-sm-min){
+      text-align: right;
+      margin-bottom: 15px;
+    }
+  }
+  .tag{
+    font-weight: bold;
+    font-size: 21px;
+    padding-left: 60px;
+    padding-top: 10px;
+  }
+  .social{
+    a{
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      padding: 0;
+      text-transform: none;
+      font-weight: normal;
+      margin-right: 5px;
+      @extend %btn;
+      @extend %btn-secondary;
+      i{
+        color: #fff;
+      }
+    }
+  }
+  .production{
+    padding-top: 10px;
+    text-align: right;
+    padding-right: 40px;
+    a{
+      text-decoration: none;
+      color: #000;
+      margin-right: 10px;
+      display: inline-block;
+      span{
+        margin-left: 10px;
+        vertical-align: middle;
+        color:#fff;
+        @extend %btn;
+        @extend %btn-small;
+        @extend %btn-secondary;
+      }
+    }
+  }
+}

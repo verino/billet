@@ -1,0 +1,59 @@
+/* btn */
+
+%btn{
+  display:inline-block;
+  font-family: $font-family;
+  text-align: center;
+  padding: 0 20px;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+%btn-normal {
+  font-size: 14px;
+  line-height: 40px;
+  height:40px;
+}
+
+%btn-medium{
+  height:58px;
+  line-height: 58px;
+  font-size: 21px;
+}
+
+%btn-big{
+  font-size: 21px;
+  line-height: 86px;
+  height: 86px;
+  padding: 0 136px;
+}
+
+%btn-small{
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+
+%btn-primary{
+  background-color: $btn-primary;
+  &:hover{
+    background-color: $btn-primary-hover;
+  }
+  &:active{
+    color:#94b9d2;
+    background-color: $btn-primary-active;
+  }
+}
+
+%btn-secondary{
+  background-color:$btn-secondary;
+  &:active{
+    background-color: $btn-secondary-active;
+  }
+  &:hover{
+    background-color: $btn-secondary-hover;
+  }
+}

@@ -1,0 +1,15 @@
+.footer-in{
+	@include make-row();
+}
+
+.list-col{
+	@include make-xs-column(3);
+}
+
+.list-col_link{
+	@include make-xs-column(8);
+}
+
+.list-col_copyright{
+	@include make-xs-column(4);
+}

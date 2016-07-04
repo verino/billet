@@ -1,0 +1,83 @@
+body{
+  position: relative;
+}
+
+/* placeholder */
+
+@include placeholder(#000 ,bold ,uppercase);
+
+/* header-top */
+.header-top{
+  padding-top: 25px;
+  @include make-row();
+
+}
+
+/* basket */
+.basket{
+  text-decoration: none;
+  @include link(#000, #000, #fa5559,#d1d1d1);
+}
+
+.basket:hover i{
+  color: #fa5559;
+  text-decoration: none;
+  @include transition;
+}
+
+/* content */
+.content{
+  margin-top: 20px;
+}
+
+/* breadcrumb */
+.breadcrumb{
+  @include make-row();
+}
+
+/* pagination-block */
+.pagination-block{
+  @include make-row();
+  text-align: center;
+  li>a{
+    border: none;
+  }
+}
+
+
+/* tabs */
+.tabs{
+  padding: 45px 0 15px;
+  @include make-row();
+  .nav-tabs{
+    margin-bottom: 15px;
+  }
+}
+
+/* range-filter */
+.range-filter{
+  background-color: rgba(red,0.2);
+  margin-bottom: 15px;
+  @include make-md-column(6);
+}
+
+/* list-checked */
+.list-checked{
+  @include make-md-column(6);
+  .first-type, .second-type{
+    @include make-md-column(6);
+  }
+}
+
+/* bottom-page */
+.bottom-page{
+  @include make-row();
+  margin: 20px 0;
+  nav,ul{
+    @include make-md-column(4);
+  }
+}
+
+.footer{
+  margin-top: 15px;
+}

@@ -1,0 +1,50 @@
+.sorting{
+  padding-top: 30px;
+  p,ul,li{
+    display: inline-block;
+    margin-top: 0;
+  }
+  .sorting-text{
+    width: 90%;
+    display: inline-block;
+  }
+  .results{
+    margin-right: 50px;
+  }
+  .sorting-title{
+    margin-right: 40px;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  .results{
+    font-size: 21px;
+    font-weight: bold;
+  }
+  .sorting-list{
+    display: inline-block;
+    a{
+      font-size: 12px;
+      margin-right: 30px;
+      text-decoration: none;
+      border-bottom: 1px dotted $nav-hover;
+      @include link($nav-active,$nav-static, $nav-hover, $nav-active);
+      &:active{
+        border-bottom:none;
+      }
+      &.active{
+        color:$nav-hover;
+        border-bottom: none;
+      }
+    }
+  }
+  .arrow{
+    @include list-clear;
+    color:$nav-static;
+    i{
+      font-size: 18px;
+      &.active{
+        color:$nav-hover;
+      }
+    }
+  }
+}

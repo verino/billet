@@ -1,0 +1,7 @@
+.thumbnail-row{
+  @include make-row();
+  margin-top: 20px;
+  .thumbnail-col{
+    @include make-md-column(3);
+  }
+}
