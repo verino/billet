@@ -1,5 +1,6 @@
 body{
   position: relative;
+  font-family: $font-family;
 }
 
 /* placeholder */
@@ -11,18 +12,6 @@ body{
   padding-top: 25px;
   @include make-row();
 
-}
-
-/* basket */
-.basket{
-  text-decoration: none;
-  @include link(#000, #000, #fa5559,#d1d1d1);
-}
-
-.basket:hover i{
-  color: #fa5559;
-  text-decoration: none;
-  @include transition;
 }
 
 /* content */

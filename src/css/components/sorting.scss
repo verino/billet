@@ -27,8 +27,8 @@
       margin-right: 30px;
       text-decoration: none;
       border-bottom: 1px dotted $nav-hover;
-      @include link($nav-active,$nav-static, $nav-hover, $nav-active);
-      &:active{
+      @include link($nav-focus,$nav-static, $nav-hover, $nav-focus);
+      &:focus{
         border-bottom:none;
       }
       &.active{

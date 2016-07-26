@@ -75,13 +75,13 @@
      }
     @extend %btn;
     @extend %btn-normal;
-    background-color: $btn-other;
+    background-color: $color-other;
     color:#000;
-    &:active{
-      background-color: $btn-other-active;
+    &:focus{
+      background-color: $color-other-focus;
     }
     &:hover{
-      background-color: $btn-other-hover;
+      background-color: $color-other-hover;
     }
   }
 
