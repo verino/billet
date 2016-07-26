@@ -9,21 +9,93 @@
   }
 }
 
-@mixin link ($normal, $visit, $hover, $active) {
-  & {
-    color: $normal;
-    &:visited {
-      color: $visit;
+@mixin link ($normal, $hover, $focus, $opacity: "") {
+  @if ($opacity != "") {
+    & {
+      color: $normal;
+      &:hover {
+        color: $hover;   
+      }
+      &:focus {
+        color: $normal;
+        @include opacity($opacity);
+      }
     }
-    &:hover {
-      color: $hover;   
-    }
-    &:active {
-      color: $active;
+  }
+  @else {
+    & {
+      color: $normal;
+      &:hover {
+        color: $hover;   
+      }
+      &:focus {
+        color: $focus;
+      }
     }
   }
 }
 
+@mixin bg-variant( $bg-color, $bg-hover, $bg-focus) {
+  & {
+    background-color: $bg-color;
+  }
+  &:hover{
+    background-color: $bg-hover;
+  }
+  &:focus {
+    background-color: $bg-focus;
+  }
+}
+
+@mixin border-color ($normal, $hover, $focus, $opacity: "") {
+  @if ($opacity != "") {
+    & {
+      border-color: $normal;
+      &:hover {
+        border-color: $hover;
+      }
+      &:focus {
+        border-color: $normal;
+        @include opacity($opacity);
+      }
+    }
+  }
+  @else {
+    & {
+      border-color: $normal;
+      &:hover {
+        border-color: $hover;
+      }
+      &:focus {
+        border-color: $focus;
+      }
+    }
+  }
+}
+
+@mixin linkborder( $bd-color, $bd-hover, $bd-focus,$normal, $hover, $focus,$bdst-color, $bdst-hover, $bdst-focus) {
+  & {
+    color: $normal;
+    border-color: $bd-color;
+    border-style: $bdst-color;
+  }
+  &:hover{
+    color: $hover;
+    border-color: $bd-hover;
+    border-style: $bdst-hover;
+  }
+  &:focus {
+    color: $focus;
+    border-color: $bd-focus;
+    border-style: $bdst-focus;
+  }
+}
+
+@mixin tdn(){
+  &:hover{
+    text-decoration: none;
+  }
+}
 
 @mixin list-clear() {
   margin: 0;
@@ -51,16 +123,16 @@
 }
 
 @mixin text-overflow {
-	overflow: hidden;
-	-ms-text-overflow: ellipsis;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @mixin cover {
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 @mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
