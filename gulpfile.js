@@ -15,6 +15,7 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglifyjs'),
 	del = require('del'),
 	cache= require('gulp-cache'),
+	cleanCSS = require('gulp-clean-css'),
 	gcmq = require('gulp-group-css-media-queries'),
 	livereload = require('gulp-livereload');
 
@@ -64,9 +65,11 @@ gulp.task('css', function(){
 		.on('error', sass.logError)
 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(gulp.dest('dist/css'))
-		.pipe(uncss({html: ['dist/index.html']}))
+		.pipe(uncss({html: ['dist/*.html']}))
 		.pipe(csscomb())
+		.pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(gcmq())
+		.pipe(cssnano())
 		.pipe(gulp.dest('dist/css'))
 		.pipe(connect.reload());
 });
@@ -108,6 +111,7 @@ gulp.task('watch',['js-libs'], function() {
 // Watch any files in dist/, reload on change
 gulp.watch('src/css/**/*', ['css'])
 gulp.watch('src/css/*', ['css'])
+gulp.watch('src/css/**/*', ['css-libs'])
 gulp.watch('src/css/libs.scss', ['css-libs'])
 gulp.watch('src/font/*', ['font'])
 gulp.watch('src/js/*', ['js'])

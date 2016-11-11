@@ -35,15 +35,29 @@
   }
 }
 
-@mixin bg-variant( $bg-color, $bg-hover, $bg-focus) {
-  & {
-    background-color: $bg-color;
+@mixin bg-variant( $bg-color, $bg-hover, $bg-focus , $opacity: "") {  
+  @if ($opacity != "") {
+    & {
+      background-color: $bg-color;
+    }
+    &:hover{
+      background-color: $bg-hover;
+    }
+    &:focus {
+      background-color: $bg-focus;
+      @include opacity($opacity);
+    }
   }
-  &:hover{
-    background-color: $bg-hover;
-  }
-  &:focus {
-    background-color: $bg-focus;
+  @else {
+    & {
+      background-color: $bg-color;
+    }
+    &:hover{
+      background-color: $bg-hover;
+    }
+    &:focus {
+      background-color: $bg-focus;
+    }
   }
 }
 
@@ -75,24 +89,23 @@
 
 @mixin linkborder( $bd-color, $bd-hover, $bd-focus,$normal, $hover, $focus,$bdst-color, $bdst-hover, $bdst-focus) {
   & {
-    color: $normal;
-    border-color: $bd-color;
-    border-style: $bdst-color;
+    color:$normal;
+    border-bottom: 1px $bd-color $bdst-color;
   }
   &:hover{
     color: $hover;
-    border-color: $bd-hover;
-    border-style: $bdst-hover;
+    border-bottom: 1px $bd-hover $bdst-hover;
+
   }
   &:focus {
     color: $focus;
-    border-color: $bd-focus;
-    border-style: $bdst-focus;
+    border-bottom: 1px $bd-focus $bdst-focus;
   }
 }
 
 @mixin tdn(){
-  &:hover{
+  &:hover,
+  &:focus{
     text-decoration: none;
   }
 }

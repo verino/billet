@@ -1,7 +1,109 @@
 body{
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-color;
+  background-color: $body-bg;
   position: relative;
-  font-family: $font-family;
+  margin-bottom: 120px;
 }
+
+
+
+// Links
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:focus {
+    @include tab-focus;
+  }
+}
+
+
+
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+
+  small,
+  .small {
+    font-weight: normal;
+    line-height: 1;
+    color: $headings-small-color;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  margin-top: $line-height-computed;
+  margin-bottom: ($line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 65%;
+  }
+}
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: ($line-height-computed / 2);
+  margin-bottom: ($line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 75%;
+  }
+}
+
+h1, .h1 { font-size: $font-size-h1; }
+h2, .h2 { font-size: $font-size-h2; }
+h3, .h3 { font-size: $font-size-h3; }
+h4, .h4 { font-size: $font-size-h4; }
+h5, .h5 { font-size: $font-size-h5; }
+h6, .h6 { font-size: $font-size-h6; }
+
+
+// Body text
+// -------------------------
+
+p {
+  margin: 0 0 ($line-height-computed / 2);
+}
+
+
+// Heads up! This is mixin-ed into thumbnails.less for `.thumbnail`.
+.img-thumbnail {
+  padding: $thumbnail-padding;
+  line-height: $line-height-base;
+  background-color: $thumbnail-bg;
+  border: 1px solid $thumbnail-border;
+  border-radius: $thumbnail-border-radius;
+  @include transition(all .2s ease-in-out);
+
+  // Keep them at most 100% wide
+  @include img-responsive(inline-block);
+}
+
 
 /* placeholder */
 
@@ -10,27 +112,13 @@ body{
 /* header-top */
 .header-top{
   padding-top: 25px;
-  @include make-row();
+  // @include make-row();
 
 }
 
 /* content */
 .content{
   margin-top: 20px;
-}
-
-/* breadcrumb */
-.breadcrumb{
-  @include make-row();
-}
-
-/* pagination-block */
-.pagination-block{
-  @include make-row();
-  text-align: center;
-  li>a{
-    border: none;
-  }
 }
 
 
@@ -47,24 +135,6 @@ body{
 .range-filter{
   background-color: rgba(red,0.2);
   margin-bottom: 15px;
-  @include make-md-column(6);
-}
-
-/* list-checked */
-.list-checked{
-  @include make-md-column(6);
-  .first-type, .second-type{
-    @include make-md-column(6);
-  }
-}
-
-/* bottom-page */
-.bottom-page{
-  @include make-row();
-  margin: 20px 0;
-  nav,ul{
-    @include make-md-column(4);
-  }
 }
 
 .footer{

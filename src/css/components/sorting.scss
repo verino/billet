@@ -20,30 +20,38 @@
     font-size: 21px;
     font-weight: bold;
   }
-  .sorting-list{
-    display: inline-block;
-    a{
-      font-size: 12px;
-      margin-right: 30px;
-      text-decoration: none;
-      border-bottom: 1px dotted $nav-hover;
-      @include link($nav-focus,$nav-static, $nav-hover, $nav-focus);
-      &:focus{
-        border-bottom:none;
-      }
-      &.active{
-        color:$nav-hover;
-        border-bottom: none;
-      }
+}
+
+.sorting-list{
+  display: inline-block;
+  a{
+    font-size: 12px;
+    margin-right: 30px;
+    text-decoration: none;
+    @include linkborder($color-primary, $color-primary, $color-primary ,$sorting, $black, $color-primary ,$bdstyle, $bdstyleh, $bdstyleh);
+    border-bottom: 1px dotted $color-primary;
+    &:focus{
+      border-bottom:none;
+    }
+    &.active{
+      color:$color-primary;
+      border-bottom: none;
     }
   }
-  .arrow{
-    @include list-clear;
-    color:$nav-static;
-    i{
-      font-size: 18px;
-      &.active{
-        color:$nav-hover;
+}
+
+.arrow{
+  @include list-clear;
+  i{
+    color:#c4c1bb;
+    font-size: 18px;
+    &:hover{
+      color: #000;
+    }
+    &.active{
+      color:$color-primary;
+      &:hover{
+        color: #000;
       }
     }
   }

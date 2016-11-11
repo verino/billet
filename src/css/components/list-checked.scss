@@ -21,9 +21,9 @@
   }
   input[type="checkbox"]+label::before{
     content:'\2610';
-    font-family: "symbols-sedona";
+    font-family: "symbols";
     display: inline-block;
-    color: #fff;
+    color: #000;
     opacity: 0.3;
     vertical-align: top;
     font-size: 30px;
@@ -32,9 +32,18 @@
       opacity: 0.6;
     }
   }
+
+  input[type="radio"]+label::before{
+    content: '\25cb';
+  }
+
   input[type="checkbox"]:checked + label::before{
     content:"\2611";
     margin-right: 6px;
     opacity: 1;
+  }
+
+  input[type="radio"]:checked + label::before{
+    content: '\25cf';
   }
 }

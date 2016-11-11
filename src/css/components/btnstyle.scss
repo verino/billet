@@ -2,13 +2,21 @@
 
 %btn{
   display:inline-block;
-  font-family: $font-family;
+  font-family: $font-family-btn;
   text-align: center;
+  vertical-align: middle;
   padding: 0 20px;
-  color: #fff;
+  font-size: 14px;
+  color: #000;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  background-image: none; 
+  border: 1px solid transparent;
+  touch-action: manipulation;
+  @include tdn;
 }
 
 %btn-normal {
@@ -56,4 +64,8 @@
   &:hover{
     background-color: $color-secondary-hover;
   }
+}
+
+[class*="btn-"]{
+  @extend %btn;
 }

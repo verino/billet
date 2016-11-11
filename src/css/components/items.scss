@@ -7,12 +7,49 @@
     @include make-sm-column(4);
     @include make-md-column(4);
   }
-  a{
+  .btn-primary{
     @extend %btn;
     @extend %btn-normal;
     @extend %btn-primary;
-    &.second{
-      @extend %btn-secondary;
-    }
+  }
+  .btn-secondary{
+    @extend %btn;
+    @extend %btn-normal;
+    @extend %btn-secondary;
+  }
+  }
+
+  .corner-new{
+  position: absolute;
+  top: 6px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: #ed3543;
+  color: #fff;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  @include rotate(45);
+  z-index: 45;
+  &:before,&:after{
+    content:'';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-left-color: #ed3543;
+    border-bottom-color: #ed3543;
+    right: -29px;
+    top:0;
+  }
+  &:before{
+    left: -29px;
+    border-right-color: #ed3543;
+    border-left-color: transparent;
+  }
+  @media (max-width: $screen-md-min){
+    display: none;
   }
 }
