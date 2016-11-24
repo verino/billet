@@ -26,6 +26,12 @@ gulp.task('connect', function() {
   });
 });
 
+gulp.task('htaccess', function() {
+	return gulp.src('src/.htaccess')
+	.pipe(gulp.dest('dist/'))
+	.pipe(connect.reload());
+});
+
 gulp.task('html', function(){
 	return gulp.src('src/*.html')
 	.pipe(rigger())
@@ -127,6 +133,6 @@ gulp.task('clear', function (done) {
   return cache.clearAll(done);
 });
 
-gulp.task( 'build', ['html', 'font','css','css-libs','js','js-libs', 'sprite', 'images']);
+gulp.task( 'build', ['html', 'htaccess', 'font','css','css-libs','js','js-libs', 'sprite', 'images']);
 
 gulp.task('default', ['html','connect', 'watch']);
