@@ -9,6 +9,69 @@
   }
 }
 
+@mixin box-sizing($boxmodel) {
+ -webkit-box-sizing: $boxmodel;
+ -moz-box-sizing: $boxmodel;
+ box-sizing: $boxmodel;
+}
+
+@mixin img-responsive($display: block) {
+  display: $display;
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+@mixin inlineblock ($valine: top) {
+  display: inline-block;
+  vertical-align: $valine;
+}
+
+/* --------- centered --------- */
+
+@mixin absolute-center {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+}
+
+@mixin tab-focus() {
+  // Default
+  outline: thin dotted;
+  // WebKit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// nav
+@mixin navlink{
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0;
+    padding-bottom: 5px;
+    @include transition;
+    &:hover{
+      color: $nav-hover;
+      text-decoration: none;
+    }
+    &:active{
+      color: $nav-focus;
+    }
+    &.active{
+      border-bottom: 2px solid #EB565C;
+    }
+}
+
+@mixin nav-divider($color: #e5e5e5) {
+  height: 1px;
+  margin: (($line-height-computed / 2) - 1) 0;
+  overflow: hidden;
+  background-color: $color;
+}
+
 @mixin link ($normal, $hover, $focus, $opacity: "") {
   @if ($opacity != "") {
     & {
@@ -146,6 +209,32 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+}
+
+/* --------- responsive mixins --------- */
+
+@mixin desktop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin tablets {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin phones {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
 }
 
 @mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
